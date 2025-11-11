@@ -74,27 +74,27 @@ You **must** specify either:
 
 **Check 3-letter .com domains:**
 ```bash
-python domain_checker.py --length 3
+python worded_domain_checkr.py --length 3
 ```
 
 **Check 4-letter domains for multiple TLDs:**
 ```bash
-python domain_checker.py --length 4 --tlds .com,.io,.net
+python worded_domain_checkr.py --length 4 --tlds .com,.io,.net
 ```
 
 **Check domains with 3-5 letters:**
 ```bash
-python domain_checker.py --min-length 3 --max-length 5
+python worded_domain_checkr.py --min-length 3 --max-length 5
 ```
 
 **Use a custom word list:**
 ```bash
-python domain_checker.py --dict /path/to/mywords.txt --length 4
+python worded_domain_checkr.py --dict /path/to/mywords.txt --length 4
 ```
 
 **Check 5-7 letter domains for .io and .dev:**
 ```bash
-python domain_checker.py --min-length 5 --max-length 7 --tlds .io,.dev
+python worded_domain_checkr.py --min-length 5 --max-length 7 --tlds .io,.dev
 ```
 
 ## Using Your Own Word List
@@ -152,7 +152,7 @@ example
 ### Example: Using System Dictionary (Linux/Mac)
 
 ```bash
-python domain_checker.py --dict /usr/share/dict/words --length 5 --tlds .com
+python worded_domain_checkr.py --dict /usr/share/dict/words --length 5 --tlds .com
 ```
 
 ## Output
