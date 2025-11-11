@@ -1,19 +1,16 @@
 # worded_domain_lookup
-Script for checking availability of domains from a provided dictionary
-
-# Domain Availability Checker
 
 A Python script that checks domain availability for dictionary words using the GoDaddy API. Quickly find available domains by filtering words based on length and checking multiple TLDs simultaneously.
 
 ## Features
 
-- ✅ Batch domain availability checking via GoDaddy API
-- 🔤 Filter words by exact length or length range
-- 🌐 Support for multiple TLDs (e.g., .com, .io, .net)
-- 📝 Custom word list support
-- 💾 Export results to JSON
-- ⚡ Rate-limited API calls to comply with GoDaddy limits
-- 📊 Progress tracking and detailed logging
+-  Batch domain availability checking via GoDaddy API
+-  Filter words by exact length or length range
+-  Support for multiple TLDs (e.g., .com, .io, .net)
+-  Custom word list support
+-  Export results to JSON when complete
+-  Rate-limited API calls to comply with GoDaddy limits
+-  Progress tracking and detailed logging
 
 ## Prerequisites
 
@@ -25,8 +22,8 @@ A Python script that checks domain availability for dictionary words using the G
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/domain-checker.git
-   cd domain-checker
+   git clone https://github.com/bakonaanlong/worded_domain_lookup.git
+   cd worded_domain_lookup
    ```
 
 2. **Install required packages**
@@ -37,9 +34,6 @@ A Python script that checks domain availability for dictionary words using the G
 3. **Set up your GoDaddy API credentials**
    
    Create a `.env` file in the project root:
-   ```bash
-   touch .env
-   ```
    
    Add your credentials to the `.env` file:
    ```
@@ -59,7 +53,7 @@ A Python script that checks domain availability for dictionary words using the G
 ### Basic Command Structure
 
 ```bash
-python domain_checker.py [OPTIONS]
+python worded_domain_checkr.py [OPTIONS]
 ```
 
 ### Required Arguments
@@ -107,7 +101,7 @@ python domain_checker.py --min-length 5 --max-length 7 --tlds .io,.dev
 
 ### Word List Format
 
-The script expects a plain text file with one word per line:
+The script expects a plain text file with one word per line like below:
 
 ```
 apple
@@ -127,9 +121,6 @@ example
 ### Creating a Custom Word List
 
 1. **Create a new text file:**
-   ```bash
-   nano mywords.txt
-   ```
 
 2. **Add your words (one per line):**
    ```
@@ -140,11 +131,11 @@ example
    data
    ```
 
-3. **Save the file** (in nano: `Ctrl+O`, then `Ctrl+X`)
+3. **Save the file** 
 
 4. **Run the script with your custom list:**
    ```bash
-   python domain_checker.py --dict mywords.txt --length 4
+   python worded_domain_checkr.py --dict mywords.txt --length 4
    ```
 
 ### Where to Find Word Lists
@@ -162,18 +153,6 @@ example
 
 ```bash
 python domain_checker.py --dict /usr/share/dict/words --length 5 --tlds .com
-```
-
-### Example: Filtering Words from Large Dictionary
-
-If you have a large dictionary and want to pre-filter it:
-
-```bash
-# Extract 4-letter words only
-grep -E '^[a-z]{4}$' /usr/share/dict/words > 4letter_words.txt
-
-# Use the filtered list
-python domain_checker.py --dict 4letter_words.txt --length 4
 ```
 
 ## Output
@@ -223,15 +202,10 @@ GODADDY_API_URL = "https://api.godaddy.com/v1/domains/available"
 
 The script provides detailed logging output:
 
-- ✓ Available domains (green check)
-- ✗ Taken domains (red X, debug level)
+- ✓ Available domains (check)
 - Progress indicators
 - API errors and warnings
 
-To enable debug logging (show all checked domains):
-```python
-logging.basicConfig(level=logging.DEBUG)
-```
 
 ## Rate Limiting
 
@@ -262,25 +236,6 @@ The script implements rate limiting to comply with GoDaddy API limits:
 - Verify API credentials are valid
 - Ensure you haven't exceeded rate limits
 - Confirm the API endpoint is accessible
-
-## Performance Tips
-
-1. **Start with smaller batches** - Test with a small word list first
-2. **Use exact length** - `--length 4` is faster than `--min-length 3 --max-length 5`
-3. **Filter your word list** - Pre-filter words before running the script
-4. **Check one TLD at a time** - More accurate for high-demand TLDs
-
-## License
-
-MIT License - Feel free to use and modify for your needs.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## Support
-
-For issues, questions, or suggestions, please open an issue on GitHub.
 
 ---
 
